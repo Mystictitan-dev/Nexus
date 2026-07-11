@@ -1,13 +1,33 @@
 
-
-h1 {
-    color: blue;            /* Changes text color */
-    font-family: sans-serif; /* Changes the font */
-    text-align: center;      /* Moves the text to the middle */
-    font-size: 48px;         /* Makes the text larger */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* A deep, modern dark gradient background */
+    background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+    
+    /* Font style for a modern look */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
-    background-color: #f0f0f0; /* A light grey background */
-    margin: 0;                /* Removes default browser spacing */
+/* Styling your H1 to look like a modern UI element */
+h1 {
+    color: #ffffff;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    
+    /* Adds a subtle "glow" effect to the text */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    
+    /* Adding a glass-like block around the text */
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px 80px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* This creates the "addictive" frosted glass effect */
 }
