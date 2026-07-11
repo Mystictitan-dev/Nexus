@@ -1,1 +1,13 @@
 
+
+h1 {
+    color: blue;            /* Changes text color */
+    font-family: sans-serif; /* Changes the font */
+    text-align: center;      /* Moves the text to the middle */
+    font-size: 48px;         /* Makes the text larger */
+}
+
+body {
+    background-color: #f0f0f0; /* A light grey background */
+    margin: 0;                /* Removes default browser spacing */
+}
