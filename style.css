@@ -1,33 +1,83 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap');
+
+
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    /* A deep, modern dark gradient background */
-    background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
-    
-    /* Font style for a modern look */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    align-items: left;
 }
 
-/* Styling your H1 to look like a modern UI element */
-h1 {
-    color: #ffffff;
-    font-size: 3rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+
+
+.input-box {
+    display: flex;
+    width: 250px;
+    height: 300px;
+    color: black;
+    background-color: white;
+    border: 2px solid #1a1a1a;
+    outline: none;
+    border-radius: 5px;
+    padding-bottom: 268px; 
+    box-sizing: border-box;
+    float: right;
+    margin-top: 60px;
+    font-family: 'Google Sans', sans-serif;
     
-    /* Adds a subtle "glow" effect to the text */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-    
-    /* Adding a glass-like block around the text */
-    background: rgba(255, 255, 255, 0.05);
-    padding: 40px 80px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px); /* This creates the "addictive" frosted glass effect */
+}
+
+.input-box:focus {
+    border-color: #121212
+}
+
+.post {
+    position: absolute; /* Takes the element out of the flow */
+    top: 375px;         /* Distance from the top of the page/container */
+    right: 6px;        /* Distance from the right edge */
+    width: 250px;
+    height: 30px;
+    background-color: #3b82f6;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 16px;
+}
+
+.navbar {
+    background-color: #1a1a1a;
+    height: 50px;
+    border-radius: 5px;
+    font-family: 'Google Sans', sans-serif;
+}
+
+.navbar a.home {
+    display: inline-block;
+    padding: 14px;
+    padding-left: 850px;
+    color: white !important;
+    text-decoration: none;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 20px;
+
+}
+.navbar a.others {
+    display: inline-block;
+    padding: 14px;
+    color: white !important;
+    text-decoration: none;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 20px;
+
+}
+
+
+.nexus {
+    display: inline-block;
+    padding: 14px;
+    color: white !important;
+    text-decoration: none;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 20px;
+
 }
