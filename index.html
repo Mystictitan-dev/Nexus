@@ -3,247 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex's Personal Journal</title>
+    <title>The Obsidian Quill - A Gothic Chronicle</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #0f1115;
-            --surface: #181b22;
-            --border: #2a2e39;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --accent: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.15);
-            --tag-bg: #1e2330;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg);
-            color: var(--text-main);
-            line-height: 1.7;
-            padding: 4rem 1.5rem;
-            display: flex;
-            justify-content: center;
-        }
-
-        .wrapper {
-            width: 100%;
-            max-width: 680px;
-        }
-
-        /* Navigation / Header */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 4rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 1.5rem;
-        }
-
-        .logo {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--text-main);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        nav a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-left: 1.5rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        nav a:hover {
-            color: var(--text-main);
-        }
-
-        /* Hero Profile Section */
-        .hero {
-            margin-bottom: 3.5rem;
-        }
-
-        .hero h1 {
-            font-family: 'Newsreader', serif;
-            font-size: 2.75rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 600px;
-        }
-
-        /* Section Title */
-        .section-title {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        /* Blog Post Cards */
-        .posts-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-        }
-
-        .post-card {
-            background-color: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.75rem;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-        }
-
-        .post-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 30px -10px var(--accent-glow);
-        }
-
-        .post-meta {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 0.75rem;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .tag {
-            background-color: var(--tag-bg);
-            color: var(--accent);
-            padding: 0.2rem 0.75rem;
-            border-radius: 50px;
-            font-weight: 500;
-            font-size: 0.75rem;
-        }
-
-        .post-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.3px;
-            color: var(--text-main);
-        }
-
-        .post-snippet {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 5rem;
-            border-top: 1px solid var(--border);
-            padding-top: 2rem;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            body {
-                padding: 2rem 1rem;
-            }
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Merriweather:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <div class="wrapper">
-        <!-- Header -->
+    <div class="container">
         <header>
-            <a href="#" class="logo">alex<span>.</span>log</a>
+            <h1>The Obsidian Quill</h1>
+            <p>Whispers from the Shadows</p>
             <nav>
-                <a href="#">Articles</a>
-                <a href="#">About</a>
-                <a href="#">Uses</a>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </nav>
         </header>
 
-        <!-- Hero / Intro -->
-        <section class="hero">
-            <h1>Writing on tech, design, and slow living.</h1>
-            <p>I'm Alex, a software engineer and writer. This is my digital corner of the internet—built with raw HTML & CSS, free of clutter.</p>
-        </section>
-
-        <!-- Blog Posts List -->
         <main>
-            <div class="section-title">Latest Writing</div>
-            
-            <div class="posts-grid">
-                <!-- Post 1 -->
-                <a href="#" class="post-card">
-                    <div class="post-meta">
-                        <span>May 14, 2026</span>
-                        <span class="tag">Engineering</span>
-                    </div>
-                    <div class="post-title">Why I'm switching back to simple HTML websites</div>
-                    <div class="post-snippet">In an era of bloated frameworks and heavy build steps, there's something deeply liberating about going back to basics.</div>
-                </a>
+            <section class="post-list">
+                <h2>Latest Entries</h2>
+                
+                <!-- Example Post 1 -->
+                <article class="post-item">
+                    <h2>The Crypt of Forgotten Tales</h2>
+                    <span class="date">September 13, 2026</span>
+                    <p>Delve into the shadowed archives where forgotten stories sleep. This entry explores the allure of the untold and the secrets held within ancient manuscripts...</p>
+                    <a href="post1.html" class="read-more">Read More &rarr;</a>
+                </article>
 
-                <!-- Post 2 -->
-                <a href="#" class="post-card">
-                    <div class="post-meta">
-                        <span>Apr 28, 2026</span>
-                        <span class="tag">Lifestyle</span>
-                    </div>
-                    <div class="post-title">Reflections on slow living and deep work</div>
-                    <div class="post-snippet">Finding focus in a world designed to constantly distract us. Small changes I made to reclaim my attention span this year.</div>
-                </a>
+                <!-- Example Post 2 -->
+                <article class="post-item">
+                    <h2>Crimson Moon Over Transylvania</h2>
+                    <span class="date">September 10, 2026</span>
+                    <p>Under the spectral glow of a crimson moon, the ancient castles of Transylvania stir. Join us as we uncover the myths and legends that haunt these lands...</p>
+                    <a href="post2.html" class="read-more">Read More &rarr;</a>
+                </article>
 
-                <!-- Post 3 -->
-                <a href="#" class="post-card">
-                    <div class="post-meta">
-                        <span>Apr 10, 2026</span>
-                        <span class="tag">Tools</span>
-                    </div>
-                    <div class="post-title">My favorite tools of the trade</div>
-                    <div class="post-snippet">A quick rundown of the software, hardware, and physical notebooks I use every single day to stay organized.</div>
-                </a>
-            </div>
+                <!-- More posts would go here -->
+            </section>
+
+            <section id="about" class="container" style="margin-top: 50px;">
+                <h2>About The Author</h2>
+                <p>Welcome, traveler, to The Obsidian Quill. I am but a humble chronicler of the macabre and the mysterious, weaving tales from the threads of twilight and shadow. This blog is a sanctuary for those who find beauty in the darkness and solace in the silence of forgotten realms.</p>
+            </section>
+
+            <section id="contact" class="container" style="margin-top: 50px;">
+                <h2>Reach the Veil</h2>
+                <p>Should you wish to send a message through the ethereal winds, you may reach me at: <a href="mailto:shadowscribe@obsidianquill.com">shadowscribe@obsidianquill.com</a></p>
+            </section>
         </main>
 
-        <!-- Footer -->
         <footer>
-            <p>&copy; 2026 Alex. Crafted with pure HTML & CSS.</p>
+            <p>&copy; 2026 The Obsidian Quill. All rights reserved to the shadows.</p>
         </footer>
     </div>
-
+    <script src="script.js"></script>
 </body>
 </html>
