@@ -1,83 +1,238 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap');
-
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-    background-color: white;
-    align-items: left;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    background-color: #1a1a1a; /* Very dark grey, almost black */
+    color: #e0d8c5; /* Off-white/parchment color */
+    line-height: 1.6;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' result='noise'%3E%3C/feTurbulence%3E%3CfeColorMatrix in='noise' type='saturate' values='0'%3E%3C/feColorMatrix%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'%3E%3C/rect%3E%3C/svg%3E");
+    background-blend-mode: overlay; /* subtle noise overlay */
 }
 
-
-
-.input-box {
-    display: flex;
-    width: 250px;
-    height: 300px;
-    color: black;
-    background-color: white;
-    border: 2px solid #1a1a1a;
-    outline: none;
-    border-radius: 5px;
-    padding-bottom: 268px; 
-    box-sizing: border-box;
-    float: right;
-    margin-top: 60px;
-    font-family: 'Google Sans', sans-serif;
-    
+.container {
+    width: 80%;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #2a2a2a; /* Slightly lighter dark grey */
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Deep shadow */
+    border-left: 5px solid #8b0000; /* Dark crimson border */
+    border-right: 5px solid #8b0000;
 }
 
-.input-box:focus {
-    border-color: #121212
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Cinzel Decorative", cursive; /* Elegant, decorative font */
+    color: #a0522d; /* Sienna for headings */
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 1px;
 }
 
-.post {
-    position: absolute; /* Takes the element out of the flow */
-    top: 375px;         /* Distance from the top of the page/container */
-    right: 6px;        /* Distance from the right edge */
-    width: 250px;
-    height: 30px;
-    background-color: #3b82f6;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-family: 'Google Sans', sans-serif;
-    font-size: 16px;
+h1 {
+    font-size: 3em;
+    color: #8b0000; /* Dark crimson for main title */
+    border-bottom: 2px solid #8b0000;
+    padding-bottom: 10px;
 }
 
-.navbar {
-    background-color: #1a1a1a;
-    height: 50px;
-    border-radius: 5px;
-    font-family: 'Google Sans', sans-serif;
+h2 {
+    font-size: 2em;
+    color: #cd853f; /* Peru for subheadings */
 }
 
-.navbar a.home {
-    display: inline-block;
-    padding: 14px;
-    padding-left: 850px;
-    color: white !important;
+a {
+    color: #cd853f; /* Peru for links */
     text-decoration: none;
-    font-family: 'Google Sans', sans-serif;
-    font-size: 20px;
-
-}
-.navbar a.others {
-    display: inline-block;
-    padding: 14px;
-    color: white !important;
-    text-decoration: none;
-    font-family: 'Google Sans', sans-serif;
-    font-size: 20px;
-
+    transition: color 0.3s ease;
 }
 
+a:hover {
+    color: #8b0000; /* Dark crimson on hover */
+    text-decoration: underline;
+}
 
-.nexus {
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #555;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post-item {
+    background-color: #3a3a3a;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-left: 3px solid #a0522d; /* Sienna border for post items */
+}
+
+.post-item h2 {
+    text-align: left;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.post-item .date {
+    color: #888;
+    font-size: 0.9em;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.post-item p {
+    margin-bottom: 15px;
+}
+
+.post-item .read-more {
     display: inline-block;
-    padding: 14px;
-    color: white !important;
-    text-decoration: none;
-    font-family: 'Google Sans', sans-serif;
-    font-size: 20px;
+    padding: 8px 15px;
+    background-color: #8b0000;
+    color: #e0d8c5;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
 
+.post-item .read-more:hover {
+    background-color: #a0522d;
+    color: #fff;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px dashed #555;
+    font-size: 0.9em;
+    color: #888;
+}
+
+/* Specific for single post view if implemented */
+.post-content {
+    margin-top: 30px;
+}
+
+.post-content h2 {
+    font-size: 2.5em;
+    color: #8b0000;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.post-content .date {
+    text-align: center;
+    color: #888;
+    font-size: 1em;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border: 3px solid #8b0000;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+/* Add some decorative elements */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><defs><pattern id="pattern-circles" patternUnits="userSpaceOnUse" width="50" height="50" fill="none"><circle cx="25" cy="25" r="1" fill="%23444" /></pattern></defs><rect width="100%" height="100%" fill="url(%23pattern-circles)" opacity="0.05"/></svg>');
+    z-index: -1;
+    opacity: 0.3; /* Subtle pattern */
+}
+
+.container::before, .container::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    top: 0;
+    background-color: rgba(139, 0, 0, 0.3); /* Translucent crimson */
+    z-index: -1;
+}
+
+.container::before {
+    left: -25px;
+    border-radius: 5px 0 0 5px;
+}
+
+.container::after {
+    right: -25px;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Typography for gothic feel */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Merriweather:ital,wght@0,400..900;1,400..900&display=swap');
+
+body {
+    font-family: 'Merriweather', serif; /* Base font */
+}
+
+h1, h2, h3, h4, h5, h6, nav ul li a {
+    font-family: 'Cinzel Decorative', cursive; /* Decorative headings and nav */
+}
+
+.post-item .date, footer {
+    font-family: 'Playfair Display', serif; /* Slightly more elegant for details */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+    h1 {
+        font-size: 2.5em;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    .post-item h2 {
+        font-size: 1.5em;
+    }
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
 }
