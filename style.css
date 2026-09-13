@@ -1,166 +1,156 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Share+Tech+Mono&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap');
 
 :root {
-    --bg-obsidian: #020204;
-    --surface-crypt: #08060a;
-    --surface-hover: #120d17;
-    --border-rune: #1a1220;
-    --border-active: #4a151b;
-    --text-primary: #cbc5d6;
-    --text-muted: #5e536b;
-    --accent-blood: #660000;
-    --accent-glow: #e60000;
-    --accent-gold: #b39265;
+    --void-black: #000000;
+    --crypt-surface: #050507;
+    --crypt-hover: #0a0a0f;
+    --border-dim: #161622;
+    --border-incandescent: #383852;
+    --text-main: #d0d0e0;
+    --text-dim: #555570;
+    --incandescent-glow: #ffffff;
+    --accent-frost: #a5b4fc;
 }
 
 body {
-    background-color: var(--bg-obsidian);
-    color: var(--text-primary);
-    font-family: 'EB Garamond', serif;
-    font-size: 1.2rem;
+    background-color: var(--void-black);
+    color: var(--text-main);
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.25rem;
     min-height: 100vh;
     margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3.5rem 1rem;
+    padding: 4rem 1rem;
     background-image: 
-        radial-gradient(circle at 50% 0%, rgba(102, 0, 0, 0.18) 0%, transparent 60%),
-        radial-gradient(circle at 10% 90%, rgba(15, 8, 25, 0.6) 0%, transparent 50%);
+        radial-gradient(circle at 50% -20%, rgba(165, 180, 252, 0.05) 0%, transparent 60%),
+        linear-gradient(to bottom, #000000, #020205);
 }
 
 h1, h2, h3, .gothic-title {
     font-family: 'Cinzel', serif;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.2em;
 }
 
-.decorative-title {
-    font-family: 'Cinzel Decorative', serif;
-    color: var(--accent-gold);
-    text-shadow: 0 0 30px rgba(179, 146, 101, 0.3);
-}
-
-/* Navigation Sanctuary Tabs */
-.gothic-nav {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 3rem;
+.monolith-title {
     font-family: 'Cinzel', serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.25em;
+    font-weight: 800;
+    color: var(--incandescent-glow);
+    text-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+    letter-spacing: 0.3em;
+}
+
+/* Cathedral Navigation */
+.cathedral-nav {
+    display: flex;
+    gap: 2.5rem;
+    margin-bottom: 3.5rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
 }
 
-.gothic-nav a {
-    color: var(--text-muted);
+.cathedral-nav a {
+    color: var(--text-dim);
     text-decoration: none;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
     border-bottom: 1px solid transparent;
-    padding-bottom: 3px;
+    padding-bottom: 4px;
 }
 
-.gothic-nav a:hover, .gothic-nav a.active {
-    color: var(--accent-gold);
-    border-color: var(--accent-blood);
-    text-shadow: 0 0 12px rgba(179, 146, 101, 0.5);
+.cathedral-nav a:hover, .cathedral-nav a.active {
+    color: var(--incandescent-glow);
+    border-color: var(--accent-frost);
+    text-shadow: 0 0 10px rgba(165, 180, 252, 0.6);
 }
 
 /* Custom Scrollbar */
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: var(--bg-obsidian); }
-::-webkit-scrollbar-thumb { background: var(--border-rune); border: 1px solid rgba(102, 0, 0, 0.4); }
-::-webkit-scrollbar-thumb:hover { background: var(--accent-blood); }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--void-black); }
+::-webkit-scrollbar-thumb { background: var(--border-dim); border: 1px solid var(--border-incandescent); }
 
-/* The Open Manuscript / Codex Card */
-.gothic-card {
-    background-color: var(--surface-crypt);
-    border: 1px solid var(--border-rune);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.98), inset 0 1px 0 rgba(255, 255, 255, 0.015);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+/* Monolith Card / Tablet */
+.monolith-card {
+    background-color: var(--crypt-surface);
+    border: 1px solid var(--border-dim);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.95);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
 }
 
-.gothic-card::before, .gothic-card::after {
-    content: '';
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    border: 1px solid var(--border-active);
-    transition: all 0.4s ease;
-}
-.gothic-card::before { top: 5px; left: 5px; border-right: none; border-bottom: none; }
-.gothic-card::after { bottom: 5px; right: 5px; border-left: none; border-top: none; }
-
-.gothic-card:hover {
-    border-color: var(--border-active);
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 1), 0 0 30px rgba(102, 0, 0, 0.25);
+.monolith-card:hover {
+    border-color: var(--border-incandescent);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 1), 0 0 20px rgba(165, 180, 252, 0.07);
+    transform: translateY(-2px);
 }
 
 textarea, select {
-    background-color: #010103;
-    border: 1px solid var(--border-rune);
-    color: var(--text-primary);
-    font-family: 'EB Garamond', serif;
+    background-color: #020204;
+    border: 1px solid var(--border-dim);
+    color: var(--text-main);
+    font-family: 'Crimson Pro', serif;
     font-size: 1.15rem;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
 }
 
 textarea:focus, select:focus {
     outline: none;
-    border-color: var(--accent-blood);
-    box-shadow: 0 0 25px rgba(102, 0, 0, 0.45), inset 0 0 10px rgba(102, 0, 0, 0.2);
+    border-color: var(--accent-frost);
+    box-shadow: 0 0 15px rgba(165, 180, 252, 0.15);
 }
 
 select {
     font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
     cursor: pointer;
 }
 
-/* Alchemical Burn Button */
-.gothic-btn {
-    background: linear-gradient(135deg, #0a060f 0%, #170b1f 100%);
-    border: 1px solid var(--border-active);
-    color: var(--accent-gold);
+/* Incandescent Button */
+.incandescent-btn {
+    background: #08080c;
+    border: 1px solid var(--border-incandescent);
+    color: var(--incandescent-glow);
     font-family: 'Cinzel', serif;
-    letter-spacing: 0.2em;
-    transition: all 0.4s ease;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.9);
-}
-
-.gothic-btn:hover {
-    background: linear-gradient(135deg, var(--accent-blood) 0%, #330000 100%);
-    border-color: var(--accent-glow);
-    color: #ffffff;
-    box-shadow: 0 0 30px rgba(230, 0, 0, 0.6);
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-}
-
-.dissolve-btn {
-    color: var(--text-muted);
-    font-family: 'Cinzel', serif;
-    letter-spacing: 0.12em;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
     transition: all 0.3s ease;
 }
 
-.dissolve-btn:hover {
-    color: var(--accent-glow);
-    text-shadow: 0 0 15px rgba(230, 0, 0, 0.8);
+.incandescent-btn:hover {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
 }
 
-.gothic-divider {
+.shatter-btn {
+    color: var(--text-dim);
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    transition: all 0.3s ease;
+}
+
+.shatter-btn:hover {
+    color: #ff4d4d;
+    text-shadow: 0 0 10px rgba(255, 77, 77, 0.6);
+}
+
+.cathedral-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border-active), transparent);
-    margin: 1.4rem 0;
+    background: linear-gradient(90deg, transparent, var(--border-dim), transparent);
+    margin: 1.5rem 0;
 }
 
-/* Smoke Dissolve Animation Effect */
-@keyframes smokeFade {
-    0% { opacity: 1; filter: blur(0px); transform: translateY(0); }
-    100% { opacity: 0; filter: blur(12px); transform: translateY(-15px); }
+/* Shattering Dissolve Effect */
+@keyframes shatterFade {
+    0% { opacity: 1; filter: blur(0px); transform: scale(1); }
+    100% { opacity: 0; filter: blur(8px); transform: scale(0.97) translateY(10px); }
 }
 
-.dissolving {
-    animation: smokeFade 0.6s ease forwards;
+.shattering {
+    animation: shatterFade 0.4s ease forwards;
 }
