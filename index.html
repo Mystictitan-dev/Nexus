@@ -3,64 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Obsidian Quill - A Gothic Chronicle</title>
+    <title>The Obsidian Crypt — Personal Chronicles</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Gothic Stylesheet -->
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Merriweather:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>The Obsidian Quill</h1>
-            <p>Whispers from the Shadows</p>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+
+    <div class="w-full max-w-2xl px-4 relative">
+        
+        <!-- Decorative Header Sticker (Occult Cross/Rose SVG) -->
+        <div class="flex justify-center mb-4">
+            <svg class="w-12 h-12 text-[#c5a880] gothic-stamp animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2v20M2 12h20M7 7l10 10M7 17L17 7" stroke-linecap="round"/>
+                <circle cx="12" cy="12" r="3" fill="currentColor" fill-opacity="0.2"/>
+            </svg>
+        </div>
+
+        <header class="mb-10 text-center">
+            <div class="text-xs tracking-[0.4em] text-[#c5a880] uppercase mb-2">Memento Mori • Sanctuarium Tenebris</div>
+            <h1 class="decorative-title text-4xl md:text-5xl font-bold uppercase">The Obsidian Crypt</h1>
+            <div class="gothic-divider w-48 mx-auto mt-4"></div>
+            <p class="text-slate-500 text-sm italic mt-3 tracking-wide">"In umbra mentis, veritas aeterna manet."</p>
         </header>
 
-        <main>
-            <section class="post-list">
-                <h2>Latest Entries</h2>
-                
-                <!-- Example Post 1 -->
-                <article class="post-item">
-                    <h2>The Crypt of Forgotten Tales</h2>
-                    <span class="date">September 13, 2026</span>
-                    <p>Delve into the shadowed archives where forgotten stories sleep. This entry explores the allure of the untold and the secrets held within ancient manuscripts...</p>
-                    <a href="post1.html" class="read-more">Read More &rarr;</a>
-                </article>
+        <!-- Input Section -->
+        <div class="gothic-card rounded-lg p-6 mb-10">
+            <div class="flex justify-between items-center mb-3">
+                <label for="blogInput" class="font-['Cinzel'] text-xs tracking-widest text-[#c5a880] uppercase">New Incantation</label>
+                <!-- Mini Skull Sticker Stamp -->
+                <svg class="w-5 h-5 text-red-900 gothic-stamp" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2a7 7 0 00-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 001 1h6a1 1 0 001-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 00-7-7zm-2 13v1h4v-1h-4zm0-3a1 1 0 110-2 1 1 0 010 2zm4 0a1 1 0 110-2 1 1 0 010 2z"/>
+                </svg>
+            </div>
+            <textarea id="blogInput" rows="4" placeholder="Speak your dark truths into the abyss..." 
+                class="w-full rounded-md p-4 placeholder-slate-700 resize-none"></textarea>
+            <div class="flex justify-end mt-4">
+                <button id="sendBtn" onclick="createPost()" 
+                    class="gothic-btn text-xs font-bold px-8 py-3 rounded cursor-pointer uppercase">
+                    Inscribe to Crypt
+                </button>
+            </div>
+        </div>
 
-                <!-- Example Post 2 -->
-                <article class="post-item">
-                    <h2>Crimson Moon Over Transylvania</h2>
-                    <span class="date">September 10, 2026</span>
-                    <p>Under the spectral glow of a crimson moon, the ancient castles of Transylvania stir. Join us as we uncover the myths and legends that haunt these lands...</p>
-                    <a href="post2.html" class="read-more">Read More &rarr;</a>
-                </article>
+        <!-- Blog Feed Header -->
+        <div class="flex items-center justify-between mb-6 px-2">
+            <h2 class="font-['Cinzel'] text-sm tracking-widest text-slate-400 uppercase">Existing Chronicles</h2>
+            <div class="h-[1px] flex-grow bg-[#231c2d] ml-4"></div>
+        </div>
 
-                <!-- More posts would go here -->
-            </section>
+        <!-- Blog Feed -->
+        <div id="blogFeed" class="space-y-6">
+            <!-- Dynamic posts will load here -->
+            <p class="text-center text-slate-600 font-['Cinzel'] text-xs tracking-widest py-8 uppercase">Awakening the archives...</p>
+        </div>
 
-            <section id="about" class="container" style="margin-top: 50px;">
-                <h2>About The Author</h2>
-                <p>Welcome, traveler, to The Obsidian Quill. I am but a humble chronicler of the macabre and the mysterious, weaving tales from the threads of twilight and shadow. This blog is a sanctuary for those who find beauty in the darkness and solace in the silence of forgotten realms.</p>
-            </section>
-
-            <section id="contact" class="container" style="margin-top: 50px;">
-                <h2>Reach the Veil</h2>
-                <p>Should you wish to send a message through the ethereal winds, you may reach me at: <a href="mailto:shadowscribe@obsidianquill.com">shadowscribe@obsidianquill.com</a></p>
-            </section>
-        </main>
-
-        <footer>
-            <p>&copy; 2026 The Obsidian Quill. All rights reserved to the shadows.</p>
+        <!-- Footer Seal -->
+        <footer class="mt-16 text-center text-slate-600 text-xs tracking-widest uppercase font-['Cinzel']">
+            <span>[ Sola Scriptura • Nullius in Verba ]</span>
         </footer>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        // REPLACE THESE WITH YOUR ACTUAL SUPABASE CREDENTIALS
+        const SUPABASE_URL = 'YOUR_SUPABASE_URL';
+        const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+
+        const { createClient } = supabase;
+        const _supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        async function fetchPosts() {
+            const feed = document.getElementById('blogFeed');
+            const { data, error } = await _supabase
+                .from('blogs')
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            if (error) {
+                feed.innerHTML = `<p class="text-red-500 text-center text-sm font-['Cinzel']">The crypt doors are sealed (Error: ${error.message})</p>`;
+                return;
+            }
+
+            if (data.length === 0) {
+                feed.innerHTML = `<p class="text-center text-slate-600 font-['Cinzel'] text-xs tracking-widest py-8 uppercase">The crypt is barren. Leave a mark above.</p>`;
+                return;
+            }
+
+            feed.innerHTML = data.map(post => `
+                <div class="gothic-card rounded-lg p-6 flex flex-col justify-between">
+                    <p class="text-slate-200 text-base md:text-lg whitespace-pre-wrap break-words mb-6 leading-relaxed">${escapeHtml(post.content)}</p>
+                    <div class="gothic-divider"></div>
+                    <div class="flex justify-between items-center text-xs text-slate-500 pt-2">
+                        <span class="font-['Cinzel'] tracking-wider">${new Date(post.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</span>
+                        <button onclick="deletePost(${post.id})" class="delete-btn cursor-pointer uppercase font-bold text-[11px]">
+                            [ Obliterate ]
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function createPost() {
+            const input = document.getElementById('blogInput');
+            const btn = document.getElementById('sendBtn');
+            const content = input.value.trim();
+
+            if (!content) return;
+
+            btn.disabled = true;
+            btn.textContent = 'Etching...';
+
+            const { error } = await _supabase
+                .from('blogs')
+                .insert([{ content }]);
+
+            if (error) {
+                alert('The spirits rejected your post: ' + error.message);
+            } else {
+                input.value = '';
+                fetchPosts();
+            }
+
+            btn.disabled = false;
+            btn.textContent = 'Inscribe to Crypt';
+        }
+
+        async function deletePost(id) {
+            if (!confirm('Are you certain you wish to cast this memory into the abyss forever?')) return;
+
+            const { error } = await _supabase
+                .from('blogs')
+                .delete()
+                .eq('id', id);
+
+            if (error) {
+                alert('Failed to banish entry: ' + error.message);
+            } else {
+                fetchPosts();
+            }
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            );
+        }
+
+        fetchPosts();
+    </script>
 </body>
 </html>
