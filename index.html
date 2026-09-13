@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Alchemical Altar — Sanctuary</title>
+    <title>The Obsidian Cathedral — Monolith Archives</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -12,67 +12,67 @@
 
     <div class="w-full max-w-2xl px-4 relative">
         
-        <!-- Sanctuary Navigation -->
-        <nav class="gothic-nav justify-center">
-            <a href="index.html" class="active">The Altar</a>
-            <a href="entities.html">Sanctuary of Entities</a>
-            <a href="codex.html">Alchemical Tomes</a>
+        <!-- Cathedral Navigation -->
+        <nav class="cathedral-nav justify-center">
+            <a href="index.html" class="active">The Spire</a>
+            <a href="entities.html">The Quiet Entities</a>
+            <a href="codex.html">System Monoliths</a>
         </nav>
 
-        <header class="mb-10 text-center">
-            <div class="text-xs tracking-[0.5em] text-[#bfa175] uppercase mb-2">Sanctuarium Tenebris • Alchimia</div>
-            <h1 class="decorative-title text-4xl md:text-5xl font-bold uppercase">The Alchemical Altar</h1>
-            <div class="gothic-divider w-56 mx-auto mt-4"></div>
-            <p class="text-slate-500 text-sm italic">"Where transient thoughts are burned into eternal ink."</p>
+        <header class="mb-12 text-center">
+            <div class="text-[10px] tracking-[0.4em] text-slate-500 uppercase mb-2">Architectural Void • Node 01</div>
+            <h1 class="monolith-title text-3xl md:text-4xl uppercase">The Obsidian Spire</h1>
+            <div class="cathedral-divider w-48 mx-auto mt-4"></div>
+            <p class="text-slate-400 text-sm italic font-light">"Where code and silent architectures are cast into permanent stone."</p>
             
-            <div class="inline-block mt-4 px-3 py-1 bg-[#08060a] border border-[#1a1220] rounded text-[11px] font-['Cinzel'] tracking-widest text-[#bfa175]">
-                Transmuted Souls: <span id="soulCount" class="text-red-600 font-bold">...</span>
+            <div class="inline-block mt-4 px-3 py-1 bg-[#050507] border border-[#161622] rounded text-[10px] font-['Cinzel'] tracking-widest text-slate-400">
+                Inscribed Tablets: <span id="soulCount" class="text-white font-bold">...</span>
             </div>
         </header>
 
-        <!-- Crucible Input Chamber -->
-        <div class="gothic-card rounded-lg p-6 mb-12">
+        <!-- Monolith Input Chamber -->
+        <div class="monolith-card rounded-md p-6 mb-12">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div>
-                    <label class="block font-['Cinzel'] text-[10px] tracking-widest text-[#bfa175] uppercase mb-1">Observing Entity</label>
+                    <label class="block font-['Cinzel'] text-[10px] tracking-widest text-slate-500 uppercase mb-1">Witness Entity</label>
                     <select id="blogCharacter" class="w-full p-2.5 rounded text-xs uppercase">
-                        <option value="🦅 Vespera the Raven">🦅 Vespera the Raven</option>
-                        <option value="⚗️ Ignatius the Alchemist">⚗️ Ignatius the Alchemist</option>
-                        <option value="👤 The Hollow Shade">👤 The Hollow Shade</option>
-                        <option value="⚙️ Azazel the Golem">⚙️ Azazel the Golem</option>
+                        <option value="⚡ The Sentinel of Core 0">⚡ The Sentinel of Core 0</option>
+                        <option value="🏛️ The Architect of Spire">🏛️ The Architect of Spire</option>
+                        <option value="🌑 The Silent Null">🌑 The Silent Null</option>
+                        <option value="❄️ The Frost Terminal">❄️ The Frost Terminal</option>
                     </select>
                 </div>
                 <div>
-                    <label class="block font-['Cinzel'] text-[10px] tracking-widest text-[#bfa175] uppercase mb-1">Alchemical Element</label>
+                    <label class="block font-['Cinzel'] text-[10px] tracking-widest text-slate-500 uppercase mb-1">Architectural Layer</label>
                     <select id="blogElement" class="w-full p-2.5 rounded text-xs uppercase">
-                        <option value="Essence of Vitriol">Essence of Vitriol (Raw Logic)</option>
-                        <option value="Philosopher's Salt">Philosopher's Salt (Core Truth)</option>
-                        <option value="Quicksilver">Quicksilver (Ephemeral Thought)</option>
-                        <option value="Aether">Aether (Void Architecture)</option>
+                        <option value="Structural Axiom">Structural Axiom (Raw Logic)</option>
+                        <option value="Obsidian Memory">Obsidian Memory (Deep State)</option>
+                        <option value="Ephemeral Pulse">Ephemeral Pulse (Transient Flow)</option>
+                        <option value="Absolute Void">Absolute Void (Core Silence)</option>
                     </select>
                 </div>
             </div>
 
-            <textarea id="blogInput" rows="4" placeholder="Pour your midnight architectures and dark truths into the crucible..." 
-                class="w-full rounded-md p-4 placeholder-slate-700 resize-none"></textarea>
+            <textarea id="blogInput" rows="4" placeholder="Inscribe your systems, midnight thoughts, and quiet logic into the stone..." 
+                class="w-full rounded p-4 placeholder-slate-700 resize-none"></textarea>
             
             <div class="flex justify-end mt-4">
                 <button id="sendBtn" onclick="createPost()" 
-                    class="gothic-btn text-xs font-bold px-8 py-3 rounded cursor-pointer uppercase">
-                    Perform Transmutation
+                    class="incandescent-btn font-bold px-8 py-3 rounded cursor-pointer uppercase">
+                    Inscribe Tablet
                 </button>
             </div>
         </div>
 
-        <!-- Crucible Feed -->
+        <!-- Tablet Archive Feed -->
         <div class="mb-10">
             <div class="flex items-center justify-between mb-6 px-2">
-                <h2 class="font-['Cinzel'] text-sm tracking-widest text-slate-400 uppercase">The Crucible Feed</h2>
-                <div class="h-[1px] flex-grow bg-[#1a1220] ml-4"></div>
+                <h2 class="font-['Cinzel'] text-xs tracking-widest text-slate-400 uppercase">The Inscribed Archives</h2>
+                <div class="h-[1px] flex-grow bg-[#161622] ml-4"></div>
             </div>
 
             <div id="blogFeed" class="space-y-6">
-                <p class="text-center text-slate-600 font-['Cinzel'] text-xs tracking-widest py-8 uppercase">Stoking the eternal fires...</p>
+                <p class="text-center text-slate-600 font-['Cinzel'] text-xs tracking-widest py-8 uppercase">Synchronizing with the monolith...</p>
             </div>
         </div>
     </div>
@@ -93,28 +93,28 @@
                 .order('created_at', { ascending: false });
 
             if (error) {
-                feed.innerHTML = `<p class="text-red-500 text-center text-sm font-['Cinzel']">Crucible Error: ${error.message}</p>`;
+                feed.innerHTML = `<p class="text-red-500 text-center text-sm font-['Cinzel']">Cathedral Error: ${error.message}</p>`;
                 return;
             }
 
             soulCounter.textContent = data.length;
 
             if (data.length === 0) {
-                feed.innerHTML = `<div class="gothic-card rounded-lg p-8 text-center"><p class="text-slate-600 font-['Cinzel'] text-xs tracking-widest uppercase">The crucible is cold. Cast your first memory above.</p></div>`;
+                feed.innerHTML = `<div class="monolith-card rounded-md p-8 text-center"><p class="text-slate-600 font-['Cinzel'] text-xs tracking-widest uppercase">The archives are entirely silent. Inscribe your first tablet above.</p></div>`;
                 return;
             }
 
             feed.innerHTML = data.map(post => `
-                <div id="post-${post.id}" class="gothic-card rounded-lg p-6 flex flex-col justify-between">
-                    <div class="flex justify-between items-center mb-3 text-xs font-['Cinzel'] text-[#bfa175]">
-                        <span>[ ${escapeHtml(post.character_name || 'Vespera the Raven')} ]</span>
-                        <span class="text-[10px] px-2.5 py-0.5 bg-[#120d17] border border-[#1a1220] uppercase text-slate-400">⚗️ ${escapeHtml(post.alchemical_element || 'Essence of Vitriol')}</span>
+                <div id="post-${post.id}" class="monolith-card rounded-md p-6 flex flex-col justify-between">
+                    <div class="flex justify-between items-center mb-3 text-xs font-['Cinzel'] text-slate-400">
+                        <span>[ ${escapeHtml(post.character_name || 'The Sentinel')} ]</span>
+                        <span class="text-[10px] px-2.5 py-0.5 bg-[#08080c] border border-[#161622] uppercase text-slate-400">❖ ${escapeHtml(post.alchemical_element || 'Structural Axiom')}</span>
                     </div>
-                    <p class="text-slate-200 text-base whitespace-pre-wrap break-words mb-4 leading-relaxed">${escapeHtml(post.content)}</p>
-                    <div class="gothic-divider"></div>
+                    <p class="text-slate-200 text-base whitespace-pre-wrap break-words mb-4 leading-relaxed font-light">${escapeHtml(post.content)}</p>
+                    <div class="cathedral-divider"></div>
                     <div class="flex justify-between items-center text-xs text-slate-500 pt-1">
                         <span>${new Date(post.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</span>
-                        <button onclick="dissolvePost(${post.id})" class="dissolve-btn cursor-pointer uppercase font-bold text-[11px]">[ Return to Smoke ]</button>
+                        <button onclick="shatterPost(${post.id})" class="shatter-btn cursor-pointer uppercase font-bold">[ Shatter Tablet ]</button>
                     </div>
                 </div>
             `).join('');
@@ -130,7 +130,7 @@
             if (!content) return;
 
             btn.disabled = true;
-            btn.textContent = 'Distilling Ink...';
+            btn.textContent = 'Carving Stone...';
 
             const { error } = await _supabase
                 .from('blogs')
@@ -141,31 +141,31 @@
                 }]);
 
             if (error) {
-                alert('Transmutation failed: ' + error.message);
+                alert('Inscription failed: ' + error.message);
             } else {
                 input.value = '';
                 fetchPosts();
             }
 
             btn.disabled = false;
-            btn.textContent = 'Perform Transmutation';
+            btn.textContent = 'Inscribe Tablet';
         }
 
-        async function dissolvePost(id) {
+        async function shatterPost(id) {
             const card = document.getElementById(`post-${id}`);
             if (card) {
-                card.classList.add('dissolving');
+                card.classList.add('shattering');
             }
 
             setTimeout(async () => {
-                const { error } = await _supabase.from('blogs').delete().eq('id', id);
+                const { error } = await _supabase.from('blogs'].delete().eq('id', id);
                 if (error) {
-                    alert('Error dissolving entry: ' + error.message);
+                    alert('Error shattering tablet: ' + error.message);
                     fetchPosts();
                 } else {
                     fetchPosts();
                 }
-            }, 500);
+            }, 400);
         }
 
         function escapeHtml(str) {
