@@ -1,156 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Share+Tech+Mono&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap');
-
-:root {
-    --void-black: #000000;
-    --crypt-surface: #050507;
-    --crypt-hover: #0a0a0f;
-    --border-dim: #161622;
-    --border-incandescent: #383852;
-    --text-main: #d0d0e0;
-    --text-dim: #555570;
-    --incandescent-glow: #ffffff;
-    --accent-frost: #a5b4fc;
-}
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap');
 
 body {
-    background-color: var(--void-black);
-    color: var(--text-main);
+    background-color: #000000;
+    color: #d0d0e0;
     font-family: 'Crimson Pro', serif;
-    font-size: 1.25rem;
-    min-height: 100vh;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 4rem 1rem;
-    background-image: 
-        radial-gradient(circle at 50% -20%, rgba(165, 180, 252, 0.05) 0%, transparent 60%),
-        linear-gradient(to bottom, #000000, #020205);
-}
-
-h1, h2, h3, .gothic-title {
-    font-family: 'Cinzel', serif;
-    letter-spacing: 0.2em;
-}
-
-.monolith-title {
-    font-family: 'Cinzel', serif;
-    font-weight: 800;
-    color: var(--incandescent-glow);
-    text-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
-    letter-spacing: 0.3em;
-}
-
-/* Cathedral Navigation */
-.cathedral-nav {
-    display: flex;
-    gap: 2.5rem;
-    margin-bottom: 3.5rem;
-    font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-}
-
-.cathedral-nav a {
-    color: var(--text-dim);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 4px;
-}
-
-.cathedral-nav a:hover, .cathedral-nav a.active {
-    color: var(--incandescent-glow);
-    border-color: var(--accent-frost);
-    text-shadow: 0 0 10px rgba(165, 180, 252, 0.6);
+    padding: 0;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--void-black); }
-::-webkit-scrollbar-thumb { background: var(--border-dim); border: 1px solid var(--border-incandescent); }
+::-webkit-scrollbar-track { background: #000000; }
+::-webkit-scrollbar-thumb { background: #161622; border: 1px solid #383852; }
+::-webkit-scrollbar-thumb:hover { background: #a5b4fc; }
 
-/* Monolith Card / Tablet */
-.monolith-card {
-    background-color: var(--crypt-surface);
-    border: 1px solid var(--border-dim);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.95);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-}
-
-.monolith-card:hover {
-    border-color: var(--border-incandescent);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 1), 0 0 20px rgba(165, 180, 252, 0.07);
-    transform: translateY(-2px);
-}
-
-textarea, select {
-    background-color: #020204;
-    border: 1px solid var(--border-dim);
-    color: var(--text-main);
-    font-family: 'Crimson Pro', serif;
-    font-size: 1.15rem;
-    transition: all 0.3s ease;
-}
-
-textarea:focus, select:focus {
-    outline: none;
-    border-color: var(--accent-frost);
-    box-shadow: 0 0 15px rgba(165, 180, 252, 0.15);
-}
-
-select {
-    font-family: 'Cinzel', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    cursor: pointer;
-}
-
-/* Incandescent Button */
-.incandescent-btn {
-    background: #08080c;
-    border: 1px solid var(--border-incandescent);
-    color: var(--incandescent-glow);
-    font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.25em;
-    transition: all 0.3s ease;
-}
-
-.incandescent-btn:hover {
-    background: #ffffff;
-    color: #000000;
-    border-color: #ffffff;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
-}
-
-.shatter-btn {
-    color: var(--text-dim);
-    font-family: 'Cinzel', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    transition: all 0.3s ease;
-}
-
-.shatter-btn:hover {
-    color: #ff4d4d;
-    text-shadow: 0 0 10px rgba(255, 77, 77, 0.6);
-}
-
-.cathedral-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border-dim), transparent);
-    margin: 1.5rem 0;
-}
-
-/* Shattering Dissolve Effect */
-@keyframes shatterFade {
-    0% { opacity: 1; filter: blur(0px); transform: scale(1); }
-    100% { opacity: 0; filter: blur(8px); transform: scale(0.97) translateY(10px); }
-}
-
-.shattering {
-    animation: shatterFade 0.4s ease forwards;
+/* Subtle Ambient Glows */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 50% -10%, rgba(165, 180, 252, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
 }
