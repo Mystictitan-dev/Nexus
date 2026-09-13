@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Grimoire of Echoes — Main Ledger</title>
+    <title>The Sanctuary — Alchemical Grimoire</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -12,69 +12,68 @@
 
     <div class="w-full max-w-2xl px-4 relative">
         
-        <!-- Navigation Menu -->
         <nav class="gothic-nav justify-center">
-            <a href="index.html" class="active">Ledger</a>
-            <a href="characters.html">Characters</a>
-            <a href="codex.html">Tomes & Genres</a>
+            <a href="index.html" class="active">The Altar</a>
+            <a href="entities.html">Sanctuary of Entities</a>
+            <a href="codex.html">Alchemical Tomes</a>
         </nav>
 
         <header class="mb-10 text-center">
-            <div class="text-xs tracking-[0.5em] text-[#bfa175] uppercase mb-2">Sanctuarium Tenebris</div>
-            <h1 class="decorative-title text-4xl md:text-5xl font-bold uppercase">The Grimoire of Echoes</h1>
+            <div class="text-xs tracking-[0.5em] text-[#bfa175] uppercase mb-2">Sanctuarium Tenebris • Alchimia</div>
+            <h1 class="decorative-title text-4xl md:text-5xl font-bold uppercase">The Alchemical Altar</h1>
             <div class="gothic-divider w-56 mx-auto mt-4"></div>
-            <p class="text-slate-500 text-sm italic mt-3">"Where characters and systems bleed into eternal ink."</p>
+            <p class="text-slate-500 text-sm italic">"Transmuting fleeting thoughts into eternal arcane elements."</p>
             
             <div class="inline-block mt-4 px-3 py-1 bg-[#0b090f] border border-[#1f1826] rounded text-[11px] font-['Cinzel'] tracking-widest text-[#bfa175]">
-                Souls Bound to Archive: <span id="soulCount" class="text-red-500 font-bold">...</span>
+                Transmuted Souls: <span id="soulCount" class="text-red-500 font-bold">...</span>
             </div>
         </header>
 
-        <!-- Incantation Input Section -->
+        <!-- Alchemical Input Crucible -->
         <div class="gothic-card rounded-lg p-6 mb-12">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                <!-- Character Persona Selector -->
+                <!-- Entity Bond Selector -->
                 <div>
-                    <label class="block font-['Cinzel'] text-[10px] tracking-widest text-[#bfa175] uppercase mb-1">Manifesting Persona</label>
+                    <label class="block font-['Cinzel'] text-[10px] tracking-widest text-[#bfa175] uppercase mb-1">Bonded Entity</label>
                     <select id="blogCharacter" class="w-full p-2 rounded text-xs uppercase">
-                        <option value="🧙‍♂️ The Necromancer">🧙‍♂️ The Necromancer</option>
-                        <option value="👁️ The Phantom Oracle">👁️ The Phantom Oracle</option>
-                        <option value="🌑 The Void Walker">🌑 The Void Walker</option>
-                        <option value="⚙️ The Iron Golem">⚙️ The Iron Golem</option>
+                        <option value="🦅 Vespera the Raven">🦅 Vespera the Raven</option>
+                        <option value="⚗️ Ignatius the Alchemist">⚗️ Ignatius the Alchemist</option>
+                        <option value="👤 The Hollow Shade">👤 The Hollow Shade</option>
+                        <option value="⚙️ Azazel the Golem">⚙️ Azazel the Golem</option>
                     </select>
                 </div>
-                <!-- Genre Selector -->
+                <!-- Alchemical Element Selector -->
                 <div>
-                    <label class="block font-['Cinzel'] text-[10px] tracking-widest text-[#bfa175] uppercase mb-1">Dark Genre / Tome</label>
-                    <select id="blogGenre" class="w-full p-2 rounded text-xs uppercase">
-                        <option value="Incantation">Incantation (Philosophy)</option>
-                        <option value="Codex">Codex (Architecture/Tech)</option>
-                        <option value="Necromancy">Necromancy (Debugging)</option>
-                        <option value="Abyssal Log">Abyssal Log (Daily Notes)</option>
+                    <label class="block font-['Cinzel'] text-[10px] tracking-widest text-[#bfa175] uppercase mb-1">Alchemical Element</label>
+                    <select id="blogElement" class="w-full p-2 rounded text-xs uppercase">
+                        <option value="Essence of Vitriol">Essence of Vitriol (Raw Logic)</option>
+                        <option value="Philosopher's Salt">Philosopher's Salt (Core Truth)</option>
+                        <option value="Quicksilver">Quicksilver (Ephemeral Thought)</option>
+                        <option value="Aether">Aether (Void Architecture)</option>
                     </select>
                 </div>
             </div>
 
-            <textarea id="blogInput" rows="4" placeholder="Speak your dark truths into the abyss..." 
+            <textarea id="blogInput" rows="4" placeholder="Pour your thoughts into the crucible..." 
                 class="w-full rounded-md p-4 placeholder-slate-700 resize-none"></textarea>
             
             <div class="flex justify-end mt-4">
                 <button id="sendBtn" onclick="createPost()" 
                     class="gothic-btn text-xs font-bold px-8 py-3 rounded cursor-pointer uppercase">
-                    Pierce the Veil (Publish)
+                    Perform Transmutation (Publish)
                 </button>
             </div>
         </div>
 
-        <!-- Ledger Feed -->
+        <!-- Transmutation Feed -->
         <div class="mb-10">
             <div class="flex items-center justify-between mb-6 px-2">
-                <h2 class="font-['Cinzel'] text-sm tracking-widest text-slate-400 uppercase">The Ledger Feed</h2>
+                <h2 class="font-['Cinzel'] text-sm tracking-widest text-slate-400 uppercase">The Crucible Feed</h2>
                 <div class="h-[1px] flex-grow bg-[#1f1826] ml-4"></div>
             </div>
 
             <div id="blogFeed" class="space-y-6">
-                <p class="text-center text-slate-600 font-['Cinzel'] text-xs tracking-widest py-8 uppercase">Summoning phantoms...</p>
+                <p class="text-center text-slate-600 font-['Cinzel'] text-xs tracking-widest py-8 uppercase">Igniting the crucible fires...</p>
             </div>
         </div>
     </div>
@@ -95,28 +94,28 @@
                 .order('created_at', { ascending: false });
 
             if (error) {
-                feed.innerHTML = `<p class="text-red-500 text-center text-sm font-['Cinzel']">Error: ${error.message}</p>`;
+                feed.innerHTML = `<p class="text-red-500 text-center text-sm font-['Cinzel']">Crucible Error: ${error.message}</p>`;
                 return;
             }
 
             soulCounter.textContent = data.length;
 
             if (data.length === 0) {
-                feed.innerHTML = `<div class="gothic-card rounded-lg p-8 text-center"><p class="text-slate-600 font-['Cinzel'] text-xs tracking-widest uppercase">The archives are dead silent.</p></div>`;
+                feed.innerHTML = `<div class="gothic-card rounded-lg p-8 text-center"><p class="text-slate-600 font-['Cinzel'] text-xs tracking-widest uppercase">The crucible is cold. Begin your transmutation above.</p></div>`;
                 return;
             }
 
             feed.innerHTML = data.map(post => `
                 <div class="gothic-card rounded-lg p-6 flex flex-col justify-between">
                     <div class="flex justify-between items-center mb-3 text-xs font-['Cinzel'] text-[#bfa175]">
-                        <span>[ ${escapeHtml(post.character_name || 'The Necromancer')} ]</span>
-                        <span class="text-[10px] px-2 py-0.5 bg-[#141019] border border-[#231c2d] uppercase text-slate-400">${escapeHtml(post.genre || 'Incantation')}</span>
+                        <span>[ ${escapeHtml(post.character_name || 'Vespera the Raven')} ]</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-[#141019] border border-[#231c2d] uppercase text-slate-400">⚗️ ${escapeHtml(post.alchemical_element || 'Essence of Vitriol')}</span>
                     </div>
                     <p class="text-slate-200 text-base whitespace-pre-wrap break-words mb-4 leading-relaxed">${escapeHtml(post.content)}</p>
                     <div class="gothic-divider"></div>
                     <div class="flex justify-between items-center text-xs text-slate-500 pt-1">
                         <span>${new Date(post.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</span>
-                        <button onclick="deletePost(${post.id})" class="delete-btn cursor-pointer uppercase font-bold text-[11px]">[ Condemn ]</button>
+                        <button onclick="deletePost(${post.id})" class="delete-btn cursor-pointer uppercase font-bold text-[11px]">[ Dissolve Entry ]</button>
                     </div>
                 </div>
             `).join('');
@@ -125,36 +124,36 @@
         async function createPost() {
             const input = document.getElementById('blogInput');
             const characterSelect = document.getElementById('blogCharacter');
-            const genreSelect = document.getElementById('blogGenre');
+            const elementSelect = document.getElementById('blogElement');
             const btn = document.getElementById('sendBtn');
             const content = input.value.trim();
 
             if (!content) return;
 
             btn.disabled = true;
-            btn.textContent = 'Channeling...';
+            btn.textContent = 'Transmuting...';
 
             const { error } = await _supabase
                 .from('blogs')
                 .insert([{ 
                     content, 
                     character_name: characterSelect.value, 
-                    genre: genreSelect.value 
+                    alchemical_element: elementSelect.value 
                 }]);
 
             if (error) {
-                alert('Rejected: ' + error.message);
+                alert('Transmutation failed: ' + error.message);
             } else {
                 input.value = '';
                 fetchPosts();
             }
 
             btn.disabled = false;
-            btn.textContent = 'Pierce the Veil (Publish)';
+            btn.textContent = 'Perform Transmutation (Publish)';
         }
 
         async function deletePost(id) {
-            if (!confirm('Erase this soul forever?')) return;
+            if (!confirm('Dissolve this entry back into the prima materia?')) return;
             const { error } = await _supabase.from('blogs').delete().eq('id', id);
             if (error) alert('Error: ' + error.message);
             else fetchPosts();
