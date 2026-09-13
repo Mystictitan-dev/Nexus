@@ -1,160 +1,166 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
 
 :root {
-    --bg-obsidian: #030305;
-    --surface-crypt: #0b090f;
-    --surface-hover: #141019;
-    --border-rune: #1f1826;
-    --border-active: #5c1d24;
-    --text-primary: #d0cce0;
-    --text-muted: #6b6178;
-    --accent-blood: #7a0000;
-    --accent-glow: #ff1f1f;
-    --accent-gold: #bfa175;
+    --bg-obsidian: #020204;
+    --surface-crypt: #08060a;
+    --surface-hover: #120d17;
+    --border-rune: #1a1220;
+    --border-active: #4a151b;
+    --text-primary: #cbc5d6;
+    --text-muted: #5e536b;
+    --accent-blood: #660000;
+    --accent-glow: #e60000;
+    --accent-gold: #b39265;
 }
 
 body {
     background-color: var(--bg-obsidian);
     color: var(--text-primary);
     font-family: 'EB Garamond', serif;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     min-height: 100vh;
     margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3rem 1rem;
+    padding: 3.5rem 1rem;
     background-image: 
-        radial-gradient(circle at 50% 0%, rgba(122, 0, 0, 0.15) 0%, transparent 55%),
-        radial-gradient(circle at 90% 90%, rgba(20, 10, 30, 0.5) 0%, transparent 45%);
+        radial-gradient(circle at 50% 0%, rgba(102, 0, 0, 0.18) 0%, transparent 60%),
+        radial-gradient(circle at 10% 90%, rgba(15, 8, 25, 0.6) 0%, transparent 50%);
 }
 
 h1, h2, h3, .gothic-title {
     font-family: 'Cinzel', serif;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.18em;
 }
 
 .decorative-title {
     font-family: 'Cinzel Decorative', serif;
     color: var(--accent-gold);
-    text-shadow: 0 0 25px rgba(191, 161, 117, 0.25);
+    text-shadow: 0 0 30px rgba(179, 146, 101, 0.3);
 }
 
-/* Navigation Menu Bar */
+/* Navigation Sanctuary Tabs */
 .gothic-nav {
     display: flex;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
+    gap: 2rem;
+    margin-bottom: 3rem;
     font-family: 'Cinzel', serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.2em;
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
 }
 
 .gothic-nav a {
     color: var(--text-muted);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.4s ease;
     border-bottom: 1px solid transparent;
-    padding-bottom: 2px;
+    padding-bottom: 3px;
 }
 
 .gothic-nav a:hover, .gothic-nav a.active {
     color: var(--accent-gold);
     border-color: var(--accent-blood);
-    text-shadow: 0 0 10px rgba(191, 161, 117, 0.4);
+    text-shadow: 0 0 12px rgba(179, 146, 101, 0.5);
 }
 
 /* Custom Scrollbar */
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg-obsidian); }
-::-webkit-scrollbar-thumb { background: var(--border-rune); border-radius: 2px; border: 1px solid rgba(122, 0, 0, 0.3); }
+::-webkit-scrollbar-thumb { background: var(--border-rune); border: 1px solid rgba(102, 0, 0, 0.4); }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent-blood); }
 
+/* The Open Manuscript / Codex Card */
 .gothic-card {
     background-color: var(--surface-crypt);
     border: 1px solid var(--border-rune);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.02);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.98), inset 0 1px 0 rgba(255, 255, 255, 0.015);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
 
 .gothic-card::before, .gothic-card::after {
     content: '';
     position: absolute;
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     border: 1px solid var(--border-active);
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
 }
-.gothic-card::before { top: 4px; left: 4px; border-right: none; border-bottom: none; }
-.gothic-card::after { bottom: 4px; right: 4px; border-left: none; border-top: none; }
+.gothic-card::before { top: 5px; left: 5px; border-right: none; border-bottom: none; }
+.gothic-card::after { bottom: 5px; right: 5px; border-left: none; border-top: none; }
 
 .gothic-card:hover {
     border-color: var(--border-active);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.99), 0 0 25px rgba(122, 0, 0, 0.2);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 1), 0 0 30px rgba(102, 0, 0, 0.25);
 }
 
 textarea, select {
-    background-color: #020103;
+    background-color: #010103;
     border: 1px solid var(--border-rune);
     color: var(--text-primary);
     font-family: 'EB Garamond', serif;
     font-size: 1.15rem;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
 }
 
 textarea:focus, select:focus {
     outline: none;
     border-color: var(--accent-blood);
-    box-shadow: 0 0 20px rgba(122, 0, 0, 0.4);
+    box-shadow: 0 0 25px rgba(102, 0, 0, 0.45), inset 0 0 10px rgba(102, 0, 0, 0.2);
 }
 
 select {
     font-family: 'Cinzel', serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
     cursor: pointer;
 }
 
+/* Alchemical Burn Button */
 .gothic-btn {
-    background: linear-gradient(135deg, #0d0914 0%, #1a1022 100%);
+    background: linear-gradient(135deg, #0a060f 0%, #170b1f 100%);
     border: 1px solid var(--border-active);
     color: var(--accent-gold);
     font-family: 'Cinzel', serif;
     letter-spacing: 0.2em;
-    transition: all 0.3s ease;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+    transition: all 0.4s ease;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.9);
 }
 
 .gothic-btn:hover {
-    background: linear-gradient(135deg, var(--accent-blood) 0%, #3d0000 100%);
+    background: linear-gradient(135deg, var(--accent-blood) 0%, #330000 100%);
     border-color: var(--accent-glow);
     color: #ffffff;
-    box-shadow: 0 0 25px rgba(255, 31, 31, 0.5);
+    box-shadow: 0 0 30px rgba(230, 0, 0, 0.6);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
-.delete-btn {
+.dissolve-btn {
     color: var(--text-muted);
     font-family: 'Cinzel', serif;
-    letter-spacing: 0.1em;
-    transition: all 0.2s ease;
+    letter-spacing: 0.12em;
+    transition: all 0.3s ease;
 }
 
-.delete-btn:hover {
+.dissolve-btn:hover {
     color: var(--accent-glow);
-    text-shadow: 0 0 12px rgba(255, 31, 31, 0.7);
+    text-shadow: 0 0 15px rgba(230, 0, 0, 0.8);
 }
 
 .gothic-divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--border-active), transparent);
-    margin: 1.2rem 0;
+    margin: 1.4rem 0;
 }
 
-.gothic-stamp {
-    opacity: 0.3;
-    filter: drop-shadow(0 0 5px rgba(122, 0, 0, 0.4));
-    transition: opacity 0.3s ease;
+/* Smoke Dissolve Animation Effect */
+@keyframes smokeFade {
+    0% { opacity: 1; filter: blur(0px); transform: translateY(0); }
+    100% { opacity: 0; filter: blur(12px); transform: translateY(-15px); }
 }
-.gothic-card:hover .gothic-stamp { opacity: 0.75; }
+
+.dissolving {
+    animation: smokeFade 0.6s ease forwards;
+}
