@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Sanctuary — Alchemical Grimoire</title>
+    <title>The Alchemical Altar — Sanctuary</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -12,6 +12,7 @@
 
     <div class="w-full max-w-2xl px-4 relative">
         
+        <!-- Sanctuary Navigation -->
         <nav class="gothic-nav justify-center">
             <a href="index.html" class="active">The Altar</a>
             <a href="entities.html">Sanctuary of Entities</a>
@@ -22,30 +23,28 @@
             <div class="text-xs tracking-[0.5em] text-[#bfa175] uppercase mb-2">Sanctuarium Tenebris • Alchimia</div>
             <h1 class="decorative-title text-4xl md:text-5xl font-bold uppercase">The Alchemical Altar</h1>
             <div class="gothic-divider w-56 mx-auto mt-4"></div>
-            <p class="text-slate-500 text-sm italic">"Transmuting fleeting thoughts into eternal arcane elements."</p>
+            <p class="text-slate-500 text-sm italic">"Where transient thoughts are burned into eternal ink."</p>
             
-            <div class="inline-block mt-4 px-3 py-1 bg-[#0b090f] border border-[#1f1826] rounded text-[11px] font-['Cinzel'] tracking-widest text-[#bfa175]">
-                Transmuted Souls: <span id="soulCount" class="text-red-500 font-bold">...</span>
+            <div class="inline-block mt-4 px-3 py-1 bg-[#08060a] border border-[#1a1220] rounded text-[11px] font-['Cinzel'] tracking-widest text-[#bfa175]">
+                Transmuted Souls: <span id="soulCount" class="text-red-600 font-bold">...</span>
             </div>
         </header>
 
-        <!-- Alchemical Input Crucible -->
+        <!-- Crucible Input Chamber -->
         <div class="gothic-card rounded-lg p-6 mb-12">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                <!-- Entity Bond Selector -->
                 <div>
-                    <label class="block font-['Cinzel'] text-[10px] tracking-widest text-[#bfa175] uppercase mb-1">Bonded Entity</label>
-                    <select id="blogCharacter" class="w-full p-2 rounded text-xs uppercase">
+                    <label class="block font-['Cinzel'] text-[10px] tracking-widest text-[#bfa175] uppercase mb-1">Observing Entity</label>
+                    <select id="blogCharacter" class="w-full p-2.5 rounded text-xs uppercase">
                         <option value="🦅 Vespera the Raven">🦅 Vespera the Raven</option>
                         <option value="⚗️ Ignatius the Alchemist">⚗️ Ignatius the Alchemist</option>
                         <option value="👤 The Hollow Shade">👤 The Hollow Shade</option>
                         <option value="⚙️ Azazel the Golem">⚙️ Azazel the Golem</option>
                     </select>
                 </div>
-                <!-- Alchemical Element Selector -->
                 <div>
                     <label class="block font-['Cinzel'] text-[10px] tracking-widest text-[#bfa175] uppercase mb-1">Alchemical Element</label>
-                    <select id="blogElement" class="w-full p-2 rounded text-xs uppercase">
+                    <select id="blogElement" class="w-full p-2.5 rounded text-xs uppercase">
                         <option value="Essence of Vitriol">Essence of Vitriol (Raw Logic)</option>
                         <option value="Philosopher's Salt">Philosopher's Salt (Core Truth)</option>
                         <option value="Quicksilver">Quicksilver (Ephemeral Thought)</option>
@@ -54,26 +53,26 @@
                 </div>
             </div>
 
-            <textarea id="blogInput" rows="4" placeholder="Pour your thoughts into the crucible..." 
+            <textarea id="blogInput" rows="4" placeholder="Pour your midnight architectures and dark truths into the crucible..." 
                 class="w-full rounded-md p-4 placeholder-slate-700 resize-none"></textarea>
             
             <div class="flex justify-end mt-4">
                 <button id="sendBtn" onclick="createPost()" 
                     class="gothic-btn text-xs font-bold px-8 py-3 rounded cursor-pointer uppercase">
-                    Perform Transmutation (Publish)
+                    Perform Transmutation
                 </button>
             </div>
         </div>
 
-        <!-- Transmutation Feed -->
+        <!-- Crucible Feed -->
         <div class="mb-10">
             <div class="flex items-center justify-between mb-6 px-2">
                 <h2 class="font-['Cinzel'] text-sm tracking-widest text-slate-400 uppercase">The Crucible Feed</h2>
-                <div class="h-[1px] flex-grow bg-[#1f1826] ml-4"></div>
+                <div class="h-[1px] flex-grow bg-[#1a1220] ml-4"></div>
             </div>
 
             <div id="blogFeed" class="space-y-6">
-                <p class="text-center text-slate-600 font-['Cinzel'] text-xs tracking-widest py-8 uppercase">Igniting the crucible fires...</p>
+                <p class="text-center text-slate-600 font-['Cinzel'] text-xs tracking-widest py-8 uppercase">Stoking the eternal fires...</p>
             </div>
         </div>
     </div>
@@ -101,21 +100,21 @@
             soulCounter.textContent = data.length;
 
             if (data.length === 0) {
-                feed.innerHTML = `<div class="gothic-card rounded-lg p-8 text-center"><p class="text-slate-600 font-['Cinzel'] text-xs tracking-widest uppercase">The crucible is cold. Begin your transmutation above.</p></div>`;
+                feed.innerHTML = `<div class="gothic-card rounded-lg p-8 text-center"><p class="text-slate-600 font-['Cinzel'] text-xs tracking-widest uppercase">The crucible is cold. Cast your first memory above.</p></div>`;
                 return;
             }
 
             feed.innerHTML = data.map(post => `
-                <div class="gothic-card rounded-lg p-6 flex flex-col justify-between">
+                <div id="post-${post.id}" class="gothic-card rounded-lg p-6 flex flex-col justify-between">
                     <div class="flex justify-between items-center mb-3 text-xs font-['Cinzel'] text-[#bfa175]">
                         <span>[ ${escapeHtml(post.character_name || 'Vespera the Raven')} ]</span>
-                        <span class="text-[10px] px-2 py-0.5 bg-[#141019] border border-[#231c2d] uppercase text-slate-400">⚗️ ${escapeHtml(post.alchemical_element || 'Essence of Vitriol')}</span>
+                        <span class="text-[10px] px-2.5 py-0.5 bg-[#120d17] border border-[#1a1220] uppercase text-slate-400">⚗️ ${escapeHtml(post.alchemical_element || 'Essence of Vitriol')}</span>
                     </div>
                     <p class="text-slate-200 text-base whitespace-pre-wrap break-words mb-4 leading-relaxed">${escapeHtml(post.content)}</p>
                     <div class="gothic-divider"></div>
                     <div class="flex justify-between items-center text-xs text-slate-500 pt-1">
                         <span>${new Date(post.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</span>
-                        <button onclick="deletePost(${post.id})" class="delete-btn cursor-pointer uppercase font-bold text-[11px]">[ Dissolve Entry ]</button>
+                        <button onclick="dissolvePost(${post.id})" class="dissolve-btn cursor-pointer uppercase font-bold text-[11px]">[ Return to Smoke ]</button>
                     </div>
                 </div>
             `).join('');
@@ -131,7 +130,7 @@
             if (!content) return;
 
             btn.disabled = true;
-            btn.textContent = 'Transmuting...';
+            btn.textContent = 'Distilling Ink...';
 
             const { error } = await _supabase
                 .from('blogs')
@@ -149,14 +148,24 @@
             }
 
             btn.disabled = false;
-            btn.textContent = 'Perform Transmutation (Publish)';
+            btn.textContent = 'Perform Transmutation';
         }
 
-        async function deletePost(id) {
-            if (!confirm('Dissolve this entry back into the prima materia?')) return;
-            const { error } = await _supabase.from('blogs').delete().eq('id', id);
-            if (error) alert('Error: ' + error.message);
-            else fetchPosts();
+        async function dissolvePost(id) {
+            const card = document.getElementById(`post-${id}`);
+            if (card) {
+                card.classList.add('dissolving');
+            }
+
+            setTimeout(async () => {
+                const { error } = await _supabase.from('blogs').delete().eq('id', id);
+                if (error) {
+                    alert('Error dissolving entry: ' + error.message);
+                    fetchPosts();
+                } else {
+                    fetchPosts();
+                }
+            }, 500);
         }
 
         function escapeHtml(str) {
