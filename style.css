@@ -1,23 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
 
 :root {
-    --bg-obsidian: #050508;
-    --surface-crypt: #0d0b10;
-    --surface-hover: #15111b;
-    --border-rune: #231c2d;
+    --bg-obsidian: #030305;
+    --surface-crypt: #0b090f;
+    --surface-hover: #141019;
+    --border-rune: #1f1826;
     --border-active: #5c1d24;
-    --text-primary: #d6d3d9;
-    --text-muted: #736b7d;
-    --accent-blood: #8b0000;
-    --accent-glow: #ff2a2a;
-    --accent-gold: #c5a880;
+    --text-primary: #d0cce0;
+    --text-muted: #6b6178;
+    --accent-blood: #7a0000;
+    --accent-glow: #ff1f1f;
+    --accent-gold: #bfa175;
 }
 
 body {
     background-color: var(--bg-obsidian);
     color: var(--text-primary);
     font-family: 'EB Garamond', serif;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     min-height: 100vh;
     margin: 0;
     display: flex;
@@ -25,19 +25,19 @@ body {
     align-items: center;
     padding: 4rem 1rem;
     background-image: 
-        radial-gradient(circle at 50% 0%, rgba(139, 0, 0, 0.12) 0%, transparent 60%),
-        radial-gradient(circle at 10% 90%, rgba(30, 20, 40, 0.4) 0%, transparent 40%);
+        radial-gradient(circle at 50% 0%, rgba(122, 0, 0, 0.15) 0%, transparent 55%),
+        radial-gradient(circle at 90% 90%, rgba(20, 10, 30, 0.5) 0%, transparent 45%);
 }
 
 h1, h2, h3, .gothic-title {
     font-family: 'Cinzel', serif;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
 }
 
 .decorative-title {
     font-family: 'Cinzel Decorative', serif;
     color: var(--accent-gold);
-    text-shadow: 0 0 20px rgba(197, 168, 128, 0.2);
+    text-shadow: 0 0 25px rgba(191, 161, 117, 0.25);
 }
 
 /* Custom Gothic Scrollbar */
@@ -50,7 +50,7 @@ h1, h2, h3, .gothic-title {
 ::-webkit-scrollbar-thumb {
     background: var(--border-rune);
     border-radius: 2px;
-    border: 1px solid rgba(139, 0, 0, 0.2);
+    border: 1px solid rgba(122, 0, 0, 0.3);
 }
 ::-webkit-scrollbar-thumb:hover {
     background: var(--accent-blood);
@@ -59,16 +59,17 @@ h1, h2, h3, .gothic-title {
 .gothic-card {
     background-color: var(--surface-crypt);
     border: 1px solid var(--border-rune);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.02);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
 
+/* Corner Rune Accents */
 .gothic-card::before, .gothic-card::after {
     content: '';
     position: absolute;
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     border: 1px solid var(--border-active);
     transition: all 0.3s ease;
 }
@@ -77,40 +78,40 @@ h1, h2, h3, .gothic-title {
 
 .gothic-card:hover {
     border-color: var(--border-active);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), 0 0 20px rgba(139, 0, 0, 0.15);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.99), 0 0 25px rgba(122, 0, 0, 0.2);
 }
 
 textarea {
-    background-color: #030204;
+    background-color: #020103;
     border: 1px solid var(--border-rune);
     color: var(--text-primary);
     font-family: 'EB Garamond', serif;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     transition: all 0.3s ease;
 }
 
 textarea:focus {
     outline: none;
     border-color: var(--accent-blood);
-    box-shadow: 0 0 15px rgba(139, 0, 0, 0.3), inset 0 0 5px rgba(139, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(122, 0, 0, 0.4), inset 0 0 8px rgba(122, 0, 0, 0.15);
 }
 
 .gothic-btn {
-    background: linear-gradient(135deg, #110d18 0%, #1f1424 100%);
+    background: linear-gradient(135deg, #0d0914 0%, #1a1022 100%);
     border: 1px solid var(--border-active);
     color: var(--accent-gold);
     font-family: 'Cinzel', serif;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.2em;
     transition: all 0.3s ease;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.9);
 }
 
 .gothic-btn:hover {
-    background: linear-gradient(135deg, var(--accent-blood) 0%, #4a0000 100%);
+    background: linear-gradient(135deg, var(--accent-blood) 0%, #3d0000 100%);
     border-color: var(--accent-glow);
     color: #ffffff;
-    box-shadow: 0 0 20px rgba(255, 42, 42, 0.4);
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 25px rgba(255, 31, 31, 0.5);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
 }
 
 .delete-btn {
@@ -122,20 +123,20 @@ textarea:focus {
 
 .delete-btn:hover {
     color: var(--accent-glow);
-    text-shadow: 0 0 10px rgba(255, 42, 42, 0.6);
+    text-shadow: 0 0 12px rgba(255, 31, 31, 0.7);
 }
 
 .gothic-divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--border-active), transparent);
-    margin: 1rem 0;
+    margin: 1.2rem 0;
 }
 
 .gothic-stamp {
-    opacity: 0.35;
-    filter: drop-shadow(0 0 4px rgba(139, 0, 0, 0.3));
+    opacity: 0.3;
+    filter: drop-shadow(0 0 5px rgba(122, 0, 0, 0.4));
     transition: opacity 0.3s ease;
 }
 .gothic-card:hover .gothic-stamp {
-    opacity: 0.7;
+    opacity: 0.75;
 }
