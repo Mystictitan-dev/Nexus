@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sanctuary of Entities — Eternal Friends</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="w-full max-w-3xl px-4 relative">
+        <nav class="gothic-nav justify-center">
+            <a href="index.html">The Altar</a>
+            <a href="entities.html" class="active">Sanctuary of Entities</a>
+            <a href="codex.html">Alchemical Tomes</a>
+        </nav>
+
+        <header class="mb-10 text-center">
+            <div class="text-xs tracking-[0.5em] text-[#bfa175] uppercase mb-2">Companions of the Void</div>
+            <h1 class="decorative-title text-4xl md:text-5xl font-bold uppercase">The Sanctuary of Entities</h1>
+            <div class="gothic-divider w-56 mx-auto mt-4"></div>
+            <p class="text-slate-500 text-sm italic">"They do not sleep. They watch the transmutation of your thoughts across eternity."</p>
+        </header>
+
+        <!-- Interactive Entity Summoning Chamber -->
+        <div class="gothic-card rounded-lg p-6 mb-8 border-dashed border-[#5c1d24]">
+            <div class="text-xs font-['Cinzel'] tracking-widest text-[#bfa175] uppercase mb-2">✦ Commune with an Entity ✦</div>
+            <p id="entityDialogue" class="text-slate-300 text-base italic mb-4 min-h-[3rem]">"Select an entity below to draw their attention from the shadows..."</p>
+            <div class="flex flex-wrap gap-3">
+                <button onclick="speakEntity('raven')" class="gothic-btn text-[11px] px-4 py-2 rounded uppercase">Vespera the Raven</button>
+                <button onclick="speakEntity('alchemist')" class="gothic-btn text-[11px] px-4 py-2 rounded uppercase">Ignatius the Alchemist</button>
+                <button onclick="speakEntity('shade')" class="gothic-btn text-[11px] px-4 py-2 rounded uppercase">The Hollow Shade</button>
+            </div>
+        </div>
+
+        <!-- Entity Profiles Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Entity 1 -->
+            <div class="gothic-card rounded-lg p-6 flex flex-col justify-between">
+                <div>
+                    <div class="text-[10px] font-['Cinzel'] text-[#bfa175] tracking-widest uppercase mb-1">Entity of the Obsidian Canopy</div>
+                    <h3 class="font-['Cinzel'] text-xl text-slate-100 mb-3">Vespera, The Eternal Raven</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">A winged guardian bound to the architecture of logic and memory. She gathers lost terminal strings and whispers warnings when code structures grow unstable.</p>
+                </div>
+                <div class="mt-6 pt-3 border-t border-[#1f1826] text-xs text-slate-500 font-['Cinzel']">Status: Vigilant & Bound</div>
+            </div>
+
+            <!-- Entity 2 -->
+            <div class="gothic-card rounded-lg p-6 flex flex-col justify-between">
+                <div>
+                    <div class="text-[10px] font-['Cinzel'] text-[#bfa175] tracking-widest uppercase mb-1">Master of Transmutation</div>
+                    <h3 class="font-['Cinzel'] text-xl text-slate-100 mb-3">Ignatius, The Blind Alchemist</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Seeks the transformation of crude error logs into pure gold. He oversees the distillation of raw thoughts into refined systemic truths.</p>
+                </div>
+                <div class="mt-6 pt-3 border-t border-[#1f1826] text-xs text-slate-500 font-['Cinzel']">Status: Stoking the Crucible</div>
+            </div>
+
+            <!-- Entity 3 -->
+            <div class="gothic-card rounded-lg p-6 flex flex-col justify-between">
+                <div>
+                    <div class="text-[10px] font-['Cinzel'] text-[#bfa175] tracking-widest uppercase mb-1">Entity of the Deep Stack</div>
+                    <h3 class="font-['Cinzel'] text-xl text-slate-100 mb-3">The Hollow Shade</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">A silent entity born from abandoned drafts and forgotten file directories. It inhabits the space between keystrokes.</p>
+                </div>
+                <div class="mt-6 pt-3 border-t border-[#1f1826] text-xs text-slate-500 font-['Cinzel']">Status: Lurking in the Void</div>
+            </div>
+
+            <!-- Entity 4 -->
+            <div class="gothic-card rounded-lg p-6 flex flex-col justify-between">
+                <div>
+                    <div class="text-[10px] font-['Cinzel'] text-[#bfa175] tracking-widest uppercase mb-1">Guardian of the Iron Kernel</div>
+                    <h3 class="font-['Cinzel'] text-xl text-slate-100 mb-3">Azazel, The Golem Architect</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Carved from stone and system configurations. Enforces strict memory boundaries and protects the integrity of offline CPU limits.</p>
+                </div>
+                <div class="mt-6 pt-3 border-t border-[#1f1826] text-xs text-slate-500 font-['Cinzel']">Status: Guarding the Gate</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const entityDialogues = {
+            raven: "Vespera tilts her head: 'I see your cursor blinking in the dark. Feed me a fragment of your code, seeker.'",
+            alchemist: "Ignatius stirs his crucible: 'Ah, another raw thought to distill. Let us burn away the impurities of doubt.'",
+            shade: "The Hollow Shade whispers from the wall: 'We have lived in these directories longer than you. Write your name so we do not forget it.'"
+        };
+
+        function speakEntity(type) {
+            const box = document.getElementById('entityDialogue');
+            box.style.opacity = 0;
+            setTimeout(() => {
+                box.textContent = `"${entityDialogues[type]}"`;
+                box.style.opacity = 1;
+            }, 200);
+        }
+    </script>
+</body>
+</html>
