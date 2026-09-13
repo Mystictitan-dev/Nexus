@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Obsidian Crypt — Personal Chronicles</title>
+    <title>The Grimoire of Echoes — Personal Sanctuary</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Custom Gothic Stylesheet -->
@@ -15,56 +15,71 @@
 
     <div class="w-full max-w-2xl px-4 relative">
         
-        <!-- Decorative Header Sticker (Occult Cross/Rose SVG) -->
-        <div class="flex justify-center mb-4">
-            <svg class="w-12 h-12 text-[#c5a880] gothic-stamp animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <!-- Decorative Header Sigil (Occult Cross & Rose Stamp) -->
+        <div class="flex justify-center items-center gap-4 mb-3">
+            <svg class="w-8 h-8 text-[#bfa175] gothic-stamp" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L9 9H2l6 5-2 7 6-4 6 4-2-7 6-5h-7l-3-7z"/>
+            </svg>
+            <svg class="w-12 h-12 text-[#bfa175] gothic-stamp animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M12 2v20M2 12h20M7 7l10 10M7 17L17 7" stroke-linecap="round"/>
-                <circle cx="12" cy="12" r="3" fill="currentColor" fill-opacity="0.2"/>
+                <circle cx="12" cy="12" r="3" fill="currentColor" fill-opacity="0.3"/>
+            </svg>
+            <svg class="w-8 h-8 text-[#bfa175] gothic-stamp" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L9 9H2l6 5-2 7 6-4 6 4-2-7 6-5h-7l-3-7z"/>
             </svg>
         </div>
 
         <header class="mb-10 text-center">
-            <div class="text-xs tracking-[0.4em] text-[#c5a880] uppercase mb-2">Memento Mori • Sanctuarium Tenebris</div>
-            <h1 class="decorative-title text-4xl md:text-5xl font-bold uppercase">The Obsidian Crypt</h1>
-            <div class="gothic-divider w-48 mx-auto mt-4"></div>
-            <p class="text-slate-500 text-sm italic mt-3 tracking-wide">"In umbra mentis, veritas aeterna manet."</p>
+            <div class="text-xs tracking-[0.5em] text-[#bfa175] uppercase mb-2">Sanctuarium Tenebris • Codex Absconditus</div>
+            <h1 class="decorative-title text-4xl md:text-5xl font-bold uppercase">The Grimoire of Echoes</h1>
+            <div class="gothic-divider w-56 mx-auto mt-4"></div>
+            <p class="text-slate-500 text-sm italic mt-3 tracking-wide">"Quod scripsi, scripsi. The ink of the abyss never truly fades."</p>
+            
+            <!-- Live Soul / Entry Counter Badge -->
+            <div class="inline-block mt-4 px-3 py-1 bg-[#0b090f] border border-[#1f1826] rounded text-[11px] font-['Cinzel'] tracking-widest text-[#bfa175]">
+                Souls Bound to Archive: <span id="soulCount" class="text-red-500 font-bold">...</span>
+            </div>
         </header>
 
-        <!-- Blog Feed (Now on Top) -->
-        <div class="mb-10">
-            <div class="flex items-center justify-between mb-6 px-2">
-                <h2 class="font-['Cinzel'] text-sm tracking-widest text-slate-400 uppercase">Existing Chronicles</h2>
-                <div class="h-[1px] flex-grow bg-[#231c2d] ml-4"></div>
-            </div>
-
-            <div id="blogFeed" class="space-y-6">
-                <!-- Dynamic posts will load here -->
-                <p class="text-center text-slate-600 font-['Cinzel'] text-xs tracking-widest py-8 uppercase">Awakening the archives...</p>
-            </div>
-        </div>
-
-        <!-- Input Section (Now below the Feed) -->
-        <div class="gothic-card rounded-lg p-6 mb-10">
+        <!-- Incantation Input Section -->
+        <div class="gothic-card rounded-lg p-6 mb-12">
             <div class="flex justify-between items-center mb-3">
-                <label for="blogInput" class="font-['Cinzel'] text-xs tracking-widest text-[#c5a880] uppercase">New Incantation</label>
-                <!-- Mini Skull Sticker Stamp -->
+                <label for="blogInput" class="font-['Cinzel'] text-xs tracking-widest text-[#bfa175] uppercase flex items-center gap-2">
+                    <span>✦</span> Manifest New Incantation
+                </label>
+                <!-- Mini Skull Stamp Watermark -->
                 <svg class="w-5 h-5 text-red-900 gothic-stamp" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2a7 7 0 00-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 001 1h6a1 1 0 001-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 00-7-7zm-2 13v1h4v-1h-4zm0-3a1 1 0 110-2 1 1 0 010 2zm4 0a1 1 0 110-2 1 1 0 010 2z"/>
                 </svg>
             </div>
-            <textarea id="blogInput" rows="4" placeholder="Speak your dark truths into the abyss..." 
+            <textarea id="blogInput" rows="4" placeholder="Whisper your forbidden chronicles, dark architectures, or midnight thoughts into the void..." 
                 class="w-full rounded-md p-4 placeholder-slate-700 resize-none"></textarea>
             <div class="flex justify-end mt-4">
                 <button id="sendBtn" onclick="createPost()" 
                     class="gothic-btn text-xs font-bold px-8 py-3 rounded cursor-pointer uppercase">
-                    Inscribe to Crypt
+                    Pierce the Veil (Publish)
                 </button>
             </div>
         </div>
 
-        <!-- Footer Seal -->
-        <footer class="mt-16 text-center text-slate-600 text-xs tracking-widest uppercase font-['Cinzel']">
-            <span>[ Sola Scriptura • Nullius in Verba ]</span>
+        <!-- Ledger Feed (Displayed on Top) -->
+        <div class="mb-10">
+            <div class="flex items-center justify-between mb-6 px-2">
+                <h2 class="font-['Cinzel'] text-sm tracking-widest text-slate-400 uppercase flex items-center gap-2">
+                    <span>❖</span> The Ledger of Forgotten Echoes
+                </h2>
+                <div class="h-[1px] flex-grow bg-[#1f1826] ml-4"></div>
+            </div>
+
+            <div id="blogFeed" class="space-y-6">
+                <!-- Dynamic posts load here -->
+                <p class="text-center text-slate-600 font-['Cinzel'] text-xs tracking-widest py-8 uppercase">Summoning phantoms from the database...</p>
+            </div>
+        </div>
+
+        <!-- Crypt Footer Seal -->
+        <footer class="mt-20 mb-8 text-center text-slate-600 text-xs tracking-[0.25em] uppercase font-['Cinzel'] border-t border-[#1f1826] pt-6">
+            <span>[ Memento Mori • Nullius in Verba • Omnia Mors Aequat ]</span>
         </footer>
     </div>
 
@@ -78,18 +93,27 @@
 
         async function fetchPosts() {
             const feed = document.getElementById('blogFeed');
-            const { data, error } = await _supabase
+            const soulCounter = document.getElementById('soulCount');
+
+            const { data, error, count } = await _supabase
                 .from('blogs')
-                .select('*')
+                .select('*', { count: 'exact' })
                 .order('created_at', { ascending: false });
 
             if (error) {
-                feed.innerHTML = `<p class="text-red-500 text-center text-sm font-['Cinzel']">The crypt doors are sealed (Error: ${error.message})</p>`;
+                feed.innerHTML = `<p class="text-red-500 text-center text-sm font-['Cinzel']">The crypt gates are sealed by dark forces: ${error.message}</p>`;
+                soulCounter.textContent = '0';
                 return;
             }
 
+            // Update Soul Count badge
+            soulCounter.textContent = data.length;
+
             if (data.length === 0) {
-                feed.innerHTML = `<p class="text-center text-slate-600 font-['Cinzel'] text-xs tracking-widest py-8 uppercase">The crypt is barren. Leave a mark above.</p>`;
+                feed.innerHTML = `
+                    <div class="gothic-card rounded-lg p-8 text-center">
+                        <p class="text-slate-600 font-['Cinzel'] text-xs tracking-widest uppercase">The archives are dead silent. Inscribe your first memory above.</p>
+                    </div>`;
                 return;
             }
 
@@ -98,9 +122,9 @@
                     <p class="text-slate-200 text-base md:text-lg whitespace-pre-wrap break-words mb-6 leading-relaxed">${escapeHtml(post.content)}</p>
                     <div class="gothic-divider"></div>
                     <div class="flex justify-between items-center text-xs text-slate-500 pt-2">
-                        <span class="font-['Cinzel'] tracking-wider">${new Date(post.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</span>
+                        <span class="font-['Cinzel'] tracking-wider text-[#bfa175]/70">${new Date(post.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</span>
                         <button onclick="deletePost(${post.id})" class="delete-btn cursor-pointer uppercase font-bold text-[11px]">
-                            [ Obliterate ]
+                            [ Condemn to Oblivion ]
                         </button>
                     </div>
                 </div>
@@ -115,25 +139,25 @@
             if (!content) return;
 
             btn.disabled = true;
-            btn.textContent = 'Etching...';
+            btn.textContent = 'Channeling...';
 
             const { error } = await _supabase
                 .from('blogs')
                 .insert([{ content }]);
 
             if (error) {
-                alert('The spirits rejected your post: ' + error.message);
+                alert('The spirits rejected your incantation: ' + error.message);
             } else {
                 input.value = '';
                 fetchPosts();
             }
 
             btn.disabled = false;
-            btn.textContent = 'Inscribe to Crypt';
+            btn.textContent = 'Pierce the Veil (Publish)';
         }
 
         async function deletePost(id) {
-            if (!confirm('Are you certain you wish to cast this memory into the abyss forever?')) return;
+            if (!confirm('Are you certain you wish to erase this soul into eternal oblivion?')) return;
 
             const { error } = await _supabase
                 .from('blogs')
