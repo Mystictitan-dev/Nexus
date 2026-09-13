@@ -131,7 +131,6 @@ textarea:focus {
     margin: 1rem 0;
 }
 
-/* Gothic Sticker Stamp effect */
 .gothic-stamp {
     opacity: 0.35;
     filter: drop-shadow(0 0 4px rgba(139, 0, 0, 0.3));
